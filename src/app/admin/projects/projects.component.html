@@ -1,0 +1,74 @@
+<app-admin-header></app-admin-header><br /><br /><br />
+<section class="projectsSearch">
+  <div class="container-fluid">
+    <div class="projectHead">
+      <h2 class="navbar-brand projectName">Projects</h2>
+    </div>
+    <div class="searchBar">
+      <form class="d-flex justify-content-right">
+        <input
+          class="form-control me-10 searchBox"
+          type="search"
+          placeholder="Search"
+          [(ngModel)]="searchText"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <button class="btn searchButton" type="submit">
+          <fa-icon class="search-icon" [icon]="searchIcon"></fa-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrapper">
+    <div class="container">
+      <div
+        class="card1"
+        *ngFor="
+          let project of projects | projectSearch: searchText:'projectName';
+          let i = index
+        "
+      >
+        <div
+          class="badge status tag"
+          [ngClass]="
+            project.status === 'Active' ? 'tag-active' : 'tag-inactive'
+          "
+        >
+          {{ project.status }}
+        </div>
+        <div class="card-body">
+          <div class="user">
+            <h4 class="projectName">{{ project.projectName }}</h4>
+          </div>
+
+          <div class="user">
+            <img src="{{ project.image }}" alt="" />
+            <div class="user-info">
+              <h4>{{ project.clientName }}</h4>
+            </div>
+          </div>
+          <div class="user">
+            <span class="empIcon"
+              ><fa-icon class="user-icon" [icon]="userIcon"></fa-icon
+            ></span>
+            <div class="employee-info">
+              <h4>{{ project.employeeCount }}</h4>
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              type="button"
+              class="btn btn1 editButton btn-icon-text"
+              (click)="onSelect(project)"
+            >
+              <fa-icon class="btn-icon-prepend" [icon]="viewIcon"></fa-icon
+              ><span class="btnText">View Project</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

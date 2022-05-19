@@ -1,0 +1,121 @@
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #3aafa9"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SAILS TIME HUNTER</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #080c0e">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #0a0d0e">ABOUT</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #0b0e0f"> PROFILE </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #080b0c"> LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <ejs-schedule
+    height="650"
+    width="80%"
+    [eventSettings]="eventObject"
+    [selectedDate]="setDate"
+    [currentView]="setView"
+  >
+    <e-views>
+      <!--<e-view option="AGENDA" startHour="05:00" endHour="20:00"></e-view>
+      <e-view option="MONTHAGENDA" startHour="05:00" endHour="20:00"></e-view>-->
+      <e-view option="Day" displayName="Day"></e-view>
+      <e-view option="Week" displayName="Week"></e-view>
+      <e-view option="Month" displayName="Monthly overview"></e-view>
+      <e-view
+        option="Agenda"
+        displayName="Reports"
+        style="color: #3aafa9"
+      ></e-view>
+    </e-views>
+
+    <ng-template #editorTemplate let-data>
+      <table
+        class="custtom-event-editor"
+        widht="100%"
+        cellpadding="5"
+        *ngIf="data != undefined"
+      >
+        <tbody>
+          <tr>
+            <td class="e-textlabel">Task Name</td>
+            <td colspan="4">
+              <input
+                type="text"
+                id="Taskname"
+                class="e-filed e-input"
+                value="{{ data.Taskname }}"
+                data.name="Taskname"
+                style="width: 100%"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="e-textlabel">From Date</td>
+            <td colspan="4">
+              <ejs-datetimepicker
+                id="startTime"
+                class="e-filed"
+                data.name="startTime"
+                format="M/dd/yy h:mm:a"
+                [value]="dateParser(data.startTime || data.startTime)"
+              ></ejs-datetimepicker>
+            </td>
+          </tr>
+          <tr>
+            <td class="e-textlabel">To Date</td>
+            <td colspan="4">
+              <ejs-datetimepicker
+                id="toTime"
+                class="e-filed"
+                data.name="toTime"
+                format="M/dd/yy h:mm:a"
+                [value]="dateParser(data.toTime || data.toTime)"
+              ></ejs-datetimepicker>
+            </td>
+          </tr>
+          <tr>
+            <td class="e-textlabel">Task Desription</td>
+            <td colspan="4">
+              <textarea
+                id="Taskdesc"
+                class="e-filed e-input"
+                value="{{ data.Taskdesc }}"
+                data.name="Taskdesc"
+                style="width: 100%; height: 60 !important; resize: vertical"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ejs-schedule>
+</body>

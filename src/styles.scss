@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+/*@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-dropdowns/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-angular-schedule/styles/material.css";*/
+* {
+  font-size: 16px;
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+}
+.commonButton {
+  border-radius: 4px;
+  background-color: #3aafa9;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.5s;
+  padding: 8px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+.commonButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.commonButton span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.commonButton:active {
+  background-color: #2b7a78;
+
+  transform: translateY(0.5px);
+}
+.commonButton:hover span {
+  padding-right: 25px;
+}
+
+.commonButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.alert {
+  padding: 0%;
+}
+.alertDisplay {
+  margin-top: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.alert-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.success {
+  color: #2b7a78;
+  padding: 20px;
+}
+.error {
+  padding: 20px;
+  color: #fa0000;
+}
+.close {
+  border: 0;
+  outline: 0;
+  background: none;
+}
+.close .closeButton {
+  font-size: x-large;
+  color: red;
+  font-weight: 700;
+  padding-right: 20px;
+}
+.close .closeButton:active {
+  background-color: none;
+  transform: translateY(0.5px);
+}

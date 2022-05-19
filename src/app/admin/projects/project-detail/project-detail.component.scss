@@ -1,0 +1,79 @@
+.row h4 {
+  margin: 10px 0;
+  margin-left: 10px;
+  font-weight: 700;
+  color: #2b7a78;
+}
+.allDetails {
+  top: 100px;
+}
+.label {
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 20px;
+}
+.label,
+.details {
+  padding: 0.5rem;
+  font-size: 20px;
+  display: inline-block;
+}
+/* table code  */
+
+.header-fixed {
+  margin-left: 80px;
+  width: 60%;
+}
+table {
+  border: 2px solid #17252a;
+}
+table thead tr th {
+  color: #2b7a78;
+}
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+  display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+  content: " ";
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.header-fixed > tbody {
+  overflow-y: auto;
+  height: 400px;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+  width: 100%;
+  // float: left;
+  text-align: center;
+  color: #3aafa9;
+}
+.content1 .row {
+  margin-top: 25px;
+}
+
+.content1 {
+  width: 100%;
+  padding-top: 60px;
+}
+@media screen and (max-width: 840px) {
+  .child {
+    font-size: 14.5px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .row1 {
+    margin-left: 50px;
+  }
+}

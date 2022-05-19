@@ -1,0 +1,207 @@
+<main>
+  <app-admin-header></app-admin-header><br /><br /><br />
+  <div class="row">
+    <div class="col-xs-10 col-md-6">
+      <h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="50"
+          height="50"
+          viewBox="0 0 171 171"
+          style="fill: #000000"
+          class="i"
+        >
+          <g
+            fill="none"
+            fill-rule="nonzero"
+            stroke="none"
+            stroke-width="1"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="10"
+            stroke-dasharray=""
+            stroke-dashoffset="0"
+            font-family="none"
+            font-weight="none"
+            font-size="none"
+            text-anchor="none"
+            style="mix-blend-mode: normal"
+          >
+            <path
+              d="M0,171.99294v-171.99294h171.99294v171.99294z"
+              fill="none"
+            ></path>
+            <g fill="#3aafa9">
+              <path
+                d="M68.4,10.26c-5.62612,0 -10.26,4.63389 -10.26,10.26v10.26h-47.88c-5.65668,0 -10.26,4.60332 -10.26,10.26v44.46c0,5.65668 4.60332,10.26 10.26,10.26h99.50063c6.85026,-4.3092 14.92916,-6.84 23.61937,-6.84c8.69022,0 16.76912,2.5308 23.61937,6.84h3.74063c5.65668,0 10.26,-4.60332 10.26,-10.26v-44.46c0,-5.65668 -4.60332,-10.26 -10.26,-10.26h-47.88v-10.26c0,-5.62611 -4.63388,-10.26 -10.26,-10.26zM68.4,17.1h34.2c1.92524,0 3.42,1.49475 3.42,3.42v10.26h-41.04v-10.26c0,-1.92525 1.49476,-3.42 3.42,-3.42zM85.5,75.24c3.77568,0 6.84,3.06432 6.84,6.84c0,3.77568 -3.06432,6.84 -6.84,6.84c-3.77568,0 -6.84,-3.06432 -6.84,-6.84c0,-3.77568 3.06432,-6.84 6.84,-6.84zM0,92.34v58.14c0,5.65668 4.60332,10.26 10.26,10.26h88.12512c-5.90976,-7.54794 -9.46512,-17.0316 -9.46512,-27.36c0,-11.95632 4.7429,-22.79088 12.42422,-30.78h-91.08422c-5.65668,0 -10.26,-4.60332 -10.26,-10.26zM126.19934,95.76l-1.71,10.94133c-1.026,0.342 -2.394,1.02733 -3.42,1.36933l-9.23801,-6.49933l-10.26,10.26l6.15867,8.55c-0.684,1.026 -1.02734,2.39934 -1.36934,3.76734l-10.60066,1.71v14.36133l10.60066,1.71c0.342,1.026 1.02734,2.394 1.36934,3.42l-6.15867,9.23133l10.26,10.26l9.23801,-6.15199c1.368,0.684 2.39266,1.02733 3.76066,1.36933l1.36934,10.94133h14.36133l1.71,-10.94133c1.026,-0.342 2.394,-1.02733 3.42,-1.36933l9.23801,6.15199l10.26,-10.26l-6.49933,-8.89067c0.684,-1.026 1.02733,-2.394 1.36933,-3.42l10.94133,-2.05066v-14.36133l-10.94133,-1.71c-0.342,-1.026 -1.02733,-2.394 -1.36933,-3.42l6.15199,-9.23801l-9.91266,-9.91933l-8.89734,6.49933c-1.026,-0.684 -2.394,-1.02733 -3.42,-1.36933l-2.05067,-10.94133zM133.38,123.12c5.814,0 10.26,4.446 10.26,10.26c0,5.814 -4.446,10.26 -10.26,10.26c-5.814,0 -10.26,-4.446 -10.26,-10.26c0,-5.814 4.446,-10.26 10.26,-10.26z"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </h2>
+      <h2>Manage Department</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let c of departments; let i = index"
+            (click)="editItem(i)"
+          >
+            <td>
+              <span>{{ c.name }}</span>
+            </td>
+            <td>
+              <span>{{ c.code }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-10 col-md-4">
+      <h2>
+        <div *ngIf="editMode">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0 0 171 171"
+            style="fill: #000000"
+            class="i1"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path
+                d="M0,171.99294v-171.99294h171.99294v171.99294z"
+                fill="none"
+              ></path>
+              <g fill="#3aafa9">
+                <path
+                  d="M9.61875,0c-5.25023,0 -9.61875,4.36852 -9.61875,9.61875v17.1c-0.02672,0.21375 -0.02672,0.4275 0,0.64125v109.44c0,1.88367 1.53633,3.42 3.42,3.42h78.66c1.22906,0.01336 2.37797,-0.62789 3.00586,-1.69664c0.61453,-1.06875 0.61453,-2.37797 0,-3.44672c-0.62789,-1.06875 -1.7768,-1.71 -3.00586,-1.69664h-75.24v-102.6h136.8v44.46c-0.01336,1.22906 0.62789,2.37797 1.69664,3.00586c1.06875,0.61453 2.37797,0.61453 3.44672,0c1.06875,-0.62789 1.71,-1.7768 1.69664,-3.00586v-47.88c0.02672,-0.21375 0.02672,-0.4275 0,-0.64125v-17.1c0,-5.25023 -4.36852,-9.61875 -9.61875,-9.61875zM9.61875,6.84h131.2425c1.58977,0 2.77875,1.18898 2.77875,2.77875v14.32125h-136.8v-14.32125c0,-1.58977 1.18898,-2.77875 2.77875,-2.77875zM23.94,51.3v6.84h13.68v-6.84zM47.88,51.3v6.84h78.66v-6.84zM23.94,68.4v6.84h13.68v-6.84zM47.88,68.4v6.84h78.66v-6.84zM156.99937,85.17938c-3.59367,0 -7.2007,1.32258 -9.93937,4.06125l-2.35125,2.45813l0.10687,0.10687l-52.79625,52.79625c-0.44086,0.40078 -0.77484,0.9218 -0.96187,1.49625l-5.77125,20.52c-0.34734,1.18898 -0.04008,2.47148 0.82828,3.36656c0.86836,0.88172 2.1375,1.22906 3.33984,0.90844l20.52,-5.45063c0.57445,-0.18703 1.09547,-0.52102 1.49625,-0.96187l54.07875,-53.65125c0.41414,-0.34734 0.74812,-0.7882 0.96187,-1.2825c0,-0.04008 0,-0.0668 0,-0.10688l0.4275,-0.32063c5.47735,-5.47734 5.47735,-14.4014 0,-19.87875c-2.73867,-2.73867 -6.3457,-4.06125 -9.93938,-4.06125zM23.94,85.5v6.84h13.68v-6.84zM47.88,85.5v6.84h78.66v-6.84zM149.625,96.615l10.26,10.26l-52.47562,52.155l-10.04625,-9.72563l0.10688,-0.4275zM23.94,102.6v6.84h13.68v-6.84zM47.88,102.6v6.84h64.98v-6.84z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div *ngIf="!editMode">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0 0 171 171"
+            style="fill: #000000"
+            class="i"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path
+                d="M0,171.99294v-171.99294h171.99294v171.99294z"
+                fill="none"
+              ></path>
+              <g fill="#3aafa9">
+                <path
+                  d="M9.61875,0c-5.25023,0 -9.61875,4.36852 -9.61875,9.61875v17.1c-0.02672,0.21375 -0.02672,0.4275 0,0.64125v109.44c0,1.88367 1.53633,3.42 3.42,3.42h88.92c1.22906,0.01336 2.37797,-0.62789 3.00586,-1.69664c0.61453,-1.06875 0.61453,-2.37797 0,-3.44672c-0.62789,-1.06875 -1.7768,-1.71 -3.00586,-1.69664h-85.5v-102.6h136.8v61.56c-0.01336,1.22906 0.62789,2.37797 1.69664,3.00586c1.06875,0.61453 2.37797,0.61453 3.44672,0c1.06875,-0.62789 1.71,-1.7768 1.69664,-3.00586v-64.98c0.02672,-0.21375 0.02672,-0.4275 0,-0.64125v-17.1c0,-5.25023 -4.36852,-9.61875 -9.61875,-9.61875zM9.61875,6.84h131.2425c1.58977,0 2.77875,1.18898 2.77875,2.77875v14.32125h-136.8v-14.32125c0,-1.58977 1.18898,-2.77875 2.77875,-2.77875zM23.94,51.3v6.84h13.68v-6.84zM47.88,51.3v6.84h78.66v-6.84zM23.94,68.4v6.84h13.68v-6.84zM47.88,68.4v6.84h78.66v-6.84zM23.94,85.5v6.84h13.68v-6.84zM47.88,85.5v6.84h78.66v-6.84zM23.94,102.6v6.84h13.68v-6.84zM47.88,102.6v6.84h54.72v-6.84zM136.8,102.6c-18.85008,0 -34.2,15.34992 -34.2,34.2c0,18.85008 15.34992,34.2 34.2,34.2c18.85008,0 34.2,-15.34992 34.2,-34.2c0,-18.85008 -15.34992,-34.2 -34.2,-34.2zM136.8,109.44c15.14953,0 27.36,12.21047 27.36,27.36c0,15.14953 -12.21047,27.36 -27.36,27.36c-15.14953,0 -27.36,-12.21047 -27.36,-27.36c0,-15.14953 12.21047,-27.36 27.36,-27.36zM133.38,119.7v13.68h-13.68v6.84h13.68v13.68h6.84v-13.68h13.68v-6.84h-13.68v-13.68z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </h2>
+      <h2 style="font-size: 25px">
+        {{ editMode ? "Edit Department" : "Add Department" }}
+      </h2>
+      <form [formGroup]="deptForm" (ngSubmit)="onSave(deptForm.value)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+          </div>
+          <div class="form-row">
+            <input type="text" formControlName="name" class="form-control" />
+            <div *ngIf="deptForm.get('name')?.errors  && isSubmitted">
+              <div *ngIf="deptForm.get('name')?.hasError('required')">
+                  <span style="color: red;">Please Enter First Name.</span>
+              </div>
+              <div *ngIf="deptForm.get('name')?.hasError('minlength')">
+                  <span style="color: red;">First Name requied atleast 3 characters.</span>
+              </div>
+              <div *ngIf="deptForm.get('name')?.hasError('maxlength')">
+                  <span style="color: red;">First Name requied only 30 characters.</span>
+              </div>
+              <div *ngIf="deptForm.get('name')?.hasError('pattern')">
+                  <span style="color: red;">Only characters are allowed.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="code">Code</label>
+          </div>
+          <div class="form-row">
+            <input type="text" formControlName="code" class="form-control" />
+            <div *ngIf="deptForm.get('code')?.errors  && isSubmitted">
+              <div *ngIf="deptForm.get('code')?.hasError('required')">
+                  <span style="color: red;">Please Enter First Name.</span>
+              </div>
+              <div *ngIf="deptForm.get('code')?.hasError('minlength')">
+                  <span style="color: red;">First Name requied atleast 3 characters.</span>
+              </div>
+              <div *ngIf="deptForm.get('code')?.hasError('maxlength')">
+                  <span style="color: red;">First Name requied only 30 characters.</span>
+              </div>
+              <div *ngIf="deptForm.get('code')?.hasError('pattern')">
+                  <span style="color: red;">Only capital characters are allowed.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row mt-4">
+            <button type="submit">
+              {{ editMode ? "Update" : "Add" }}
+            </button>
+            <button type="button" (click)="onReset()">Reset</button>
+
+            <button type="button" (click)="onRemove()" *ngIf="editMode">
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

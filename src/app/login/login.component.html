@@ -1,0 +1,137 @@
+<!--<div class="row">
+  <div class="col-md-5 d-none d-md-block">
+    <img src="assets/images/login.svg" class="image" />
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div class="logo1">
+      <img src="assets/images/logo.png" class="logo" />
+    </div>
+    <div class="forms">
+      <h1 class="title">Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="loginForm">
+          <div class="form-group">
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="example@gmail.com"
+              id="email"
+              formControlName="email"
+              class="form-control"
+            />
+            <div *ngIf="loginForm.get('email')?.errors && isSubmitted">
+              <div *ngIf="loginForm.get('email')?.hasError('required')">
+                <span style="color: red;">Please Enter Email.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('minlength')">
+                <span style="color: red;">The email requied atleast 5 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('maxlength')">
+                <span style="color: red;">The email requied only 80 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('pattern')">
+                <span style="color: red;">The Email is not valid.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            
+              <input
+                type="password"
+                placeholder="enter the password"
+                id="loginData.password"
+                formControlName="password"
+                class="form-control"
+              />
+            
+            <div *ngIf="loginForm.get('password')?.errors && isSubmitted">
+              <div *ngIf="loginForm.get('password')?.hasError('required')">
+                <span style="color: red;">Please Enter Password.</span>
+              </div>
+              <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+                <span style="color: red;">The password requied atleast 5 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('password')?.hasError('maxlength')">
+                <span style="color: red;">The password requied only 12 characters.</span>
+              </div>
+            </div>
+          </div>
+          <div class="link">
+            <a style="cursor: pointer" routerLink="/forgotpassword"
+              >Forget password?
+            </a>
+          </div>
+          <br />
+
+          <button type="submit" class="commonButton" style="padding: 5px">
+            <span>Login</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>-->
+
+<div class="row">
+  <div class="col-md-5 d-none d-md-block">
+    <img src="assets/images/login.svg" class="image" />
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div class="logo1">
+      <img src="assets/images/logo.png" class="logo" />
+    </div>
+    <div class="forms">
+      <h1 class="title">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+          
+        <div class="row">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" placeholder="Enter Email Address Here.." formControlName="email" class="form-control" />
+            <div *ngIf="loginForm.get('email')?.errors && isSubmitted">
+              <div *ngIf="loginForm.get('email')?.hasError('required')">
+                <span style="color: red;">Please Enter Email.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('')">
+                <span style="color: red;">Please Enter Email.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('minlength')">
+                <span style="color: red;">The email requied atleast 5 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('maxlength')">
+                <span style="color: red;">The email requied only 80 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('pattern')">
+                <span style="color: red;">The Email is not valid.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password Here.." formControlName="password" class="form-control" />
+            <div *ngIf="loginForm.get('password')?.errors && isSubmitted">
+              <div *ngIf="loginForm.get('password')?.hasError('required')">
+                <span style="color: red;">Please Enter Password.</span>
+              </div>
+              <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+                <span style="color: red;">The password requied atleast 5 characters.</span>
+              </div>
+              <div *ngIf="loginForm.get('password')?.hasError('maxlength')">
+                <span style="color: red;">The password requied only 12 characters.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="link">
+          <a style="cursor: pointer" routerLink="/forgotpassword"
+            >Forget password?
+          </a>
+        </div>
+        <br />
+        <button type="submit" class="commonButton" style="padding: 5px" >Login</button>
+    </form>
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,65 @@
+.i {
+  height: 90%;
+  width: 90%;
+  margin-left: 20px;
+}
+th,
+td {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+tr {
+  background-color: #def2f1;
+  border: 1px solid #3aafa9;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+th {
+  background-color: #3aafa9;
+  padding: 10px;
+}
+* {
+  font-family: "roboto";
+  font-size: 15px;
+  color: #17252a;
+}
+h2 {
+  text-align: center;
+  font-size: 40px;
+  margin: 10%;
+  margin-bottom: 10px;
+}
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+  display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+  content: " ";
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.header-fixed > tbody {
+  overflow-y: auto;
+  height: 400px;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+  width: 100%;
+  // float: left;
+  text-align: center;
+  color: #3aafa9;
+}

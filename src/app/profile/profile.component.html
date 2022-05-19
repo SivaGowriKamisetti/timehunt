@@ -1,0 +1,163 @@
+<form [formGroup]="editForm" (onSubmit)="(editUser)">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <span>
+            <div class="profile-pic">
+              <img
+                src="..\assets\images\logo.png"
+                id="output"
+                class="rounded-circle"
+                height="150"
+                width="180"
+              />
+
+              <!--<input
+                type="file"
+                class="file-input"
+                (change)="onFileSelected(event)"
+                #fileUpload
+              />
+              <div class="file-upload">
+                {{ fileName || "No file uploaded yet" }}
+                <button
+                  mat-mini-fab-color="primary"
+                  class="upload-btn"
+                  (click)="fileUpload.click()"
+                >
+                  <button>attach-file</button>
+                </button>
+              </div>-->
+              <input id="file" type="file" onchange="loadFile(event)" />
+              <label class="-label" for="file">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span><button>Change Image</button></span>
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Profile Settings</h4>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label class="labels">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="first name"
+                formControlName="fn"
+                [(ngModel)]="firstName"
+                required
+              />
+              <span style="color: red" *ngIf="fn && fn.invalid && fn.touched"
+                >firstName invalid</span
+              >
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Lastname</label>
+              <input
+                type="text"
+                class="form-control"
+                value=""
+                placeholder="last name"
+                formControlName="ln"
+                [(ngModel)]="lastName"
+                required
+              />
+              <span style="color: red" *ngIf="ln && ln.invalid && ln.touched"
+                >Lastname invalid</span
+              >
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <label class="labels">PhoneNumber</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="enter phone number"
+                formControlName="pn"
+                [(ngModel)]="phoneNumber"
+                equired
+              />
+              <span style="color: red" *ngIf="pn && pn.invalid && pn.touched"
+                >phone invalid</span
+              >
+            </div>
+            <div class="col-md-12">
+              <label class="labels">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="enter address"
+                formControlName="add"
+                [(ngModel)]="Address"
+              />
+            </div>
+
+            <div class="col-md-12">
+              <label class="labels">Email ID</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="enter email id"
+                formControlName="email"
+                [(ngModel)]="emailAddress"
+                required
+              />
+              <span
+                style="color: red"
+                *ngIf="email && email.invalid && email.touched"
+                >email invalid</span
+              >
+            </div>
+            <div class="col-md-12">
+              <label class="labels">Education</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="education"
+                formControlName="ed"
+                [(ngModel)]="education"
+              />
+            </div>
+          </div>
+
+          <div class="mt-5 text-center">
+            <button
+              class="btn btn-primary"
+              type="button"
+              [disabled]="editForm.invalid"
+              (click)="postData()"
+              routerLink="/admin"
+            >
+              Save Profile
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-3 py-5">
+          <div
+            class="d-flex justify-content-between align-items-center experience"
+          ></div>
+          <br />
+
+          <button
+            type="button"
+            class="commonButton"
+            routerLink="/resetpassword"
+          >
+            Change Password
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<p>profile page</p>

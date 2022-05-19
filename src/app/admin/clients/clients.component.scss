@@ -1,0 +1,98 @@
+td {
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+* {
+  font-family: "roboto";
+  font-size: 15px;
+  color: #17252a;
+}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+  margin: 20px;
+}
+form {
+  margin-top: 30px;
+}
+
+:placeholder-shown {
+  border: 1px solid #3aafa9;
+}
+input:focus {
+  background-color: #f4fafa;
+  border: 1px solid #2b7a78;
+  box-shadow: 0 0 5pt 2pt #bdf0ed;
+}
+.invalid {
+  color: red;
+  font-weight: 600;
+}
+input.ng-touched.ng-invalid {
+  border: red 1px solid;
+}
+input:focus {
+  background-color: #f4fafa;
+  border: 1px solid #2b7a78;
+  box-shadow: 0 0 5pt 2pt #bdf0ed;
+}
+label {
+  margin-top: 20px;
+}
+.add {
+  text-align: right;
+  margin-right: 10%;
+}
+.box {
+  background-color: #3aafa9;
+  border-radius: 5px;
+  padding: 8px;
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 250px;
+  margin: 10px;
+  text-align: center;
+}
+button {
+  border-radius: 4px;
+  background-color: #3aafa9;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+
+  padding: 10px;
+  width: 100px;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
+
+  background-color: #3aafa9;
+}
+
+button:active {
+  background-color: #2b7a78;
+
+  transform: translateY(0.5px);
+}
+button:disabled {
+  background-color: #a0d1cf;
+}
+.userlist {
+  border-radius: 2px;
+
+  background-color: #def2f1;
+  cursor: pointer;
+}

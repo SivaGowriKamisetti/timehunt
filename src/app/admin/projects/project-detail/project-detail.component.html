@@ -1,0 +1,44 @@
+<app-admin-header></app-admin-header> <br /><br /><br />
+<div class="content1">
+  <div class="row row1">
+    <div class="col-sm-12"><a routerLink="/project">Back to projects</a></div>
+  </div>
+  <div class="row row1">
+    <div class="col-sm-6">
+      <div class="row"><h4>Project Details</h4></div>
+      <div class="label">Project Name</div>
+      :
+      <div class="details">{{ projectInfo.projectName }}</div>
+      <br />
+      <div class="label">Client Name</div>
+      :
+      <div class="details">{{ projectInfo.clientName }}</div>
+      <br />
+      <div class="label">Started date</div>
+      :
+      <div class="details">{{ projectInfo.startedDate }}</div>
+      <br />
+      <div class="label">Deadline</div>
+      :
+      <div class="details">{{ projectInfo.Deadline }}</div>
+      <br />
+      <div class="label">Number of Users</div>
+      :
+      <div class="details">{{ projectInfo.employeeCount }}</div>
+    </div>
+    <div class="col-sm-6">
+      <table class="table table-striped header-fixed">
+        <thead>
+          <tr>
+            <th>Employees Working</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of projectInfo.empWorking; let i = index">
+            <td class="filterable-cell">{{ user }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

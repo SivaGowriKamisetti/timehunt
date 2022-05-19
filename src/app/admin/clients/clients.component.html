@@ -1,0 +1,330 @@
+<app-admin-header></app-admin-header><br /><br /><br />
+<div class="row">
+  <h2>{{ editMode ? "Edit Client" : "Add Client" }}</h2>
+  <form [formGroup]="clientForm" (ngSubmit)="onSave(clientForm.value)">
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+          />
+          <div *ngIf="clientForm.get('name')?.errors  && isSubmitted">
+            <div *ngIf="clientForm.get('name')?.hasError('required')">
+                <span style="color: red;">Please Enter Client Name.</span>
+            </div>
+            <div *ngIf="clientForm.get('name')?.hasError('minlength')">
+                <span style="color: red;">Client name requied atleast 3 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('name')?.hasError('maxlength')">
+                <span style="color: red;">Client name requied only 30 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('name')?.hasError('pattern')">
+                <span style="color: red;">Only characters are allowed.</span>
+            </div>
+          </div>
+        </td>
+        <td>Code</td>
+        <td>
+          <input
+            type="text"
+            id="code"
+            formControlName="code"
+            class="form-control"
+          />
+          <div *ngIf="clientForm.get('code')?.errors  && isSubmitted">
+            <div *ngIf="clientForm.get('code')?.hasError('required')">
+                <span style="color: red;">Please Enter code.</span>
+            </div>
+            <div *ngIf="clientForm.get('code')?.hasError('minlength')">
+                <span style="color: red;">code requied atleast 2 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('code')?.hasError('maxlength')">
+                <span style="color: red;">code requied only 10 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('code')?.hasError('pattern')">
+                <span style="color: red;">Only capital characters are allowed.</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <br />
+      <tr>
+        <td>Email</td>
+        <td>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+          />
+          <div *ngIf="clientForm.get('email')?.errors && isSubmitted">
+            <div *ngIf="clientForm.get('email')?.hasError('required')">
+              <span style="color: red;">Please Enter Email.</span>
+            </div>
+            <div *ngIf="clientForm.get('email')?.hasError('')">
+              <span style="color: red;">Please Enter Email.</span>
+            </div>
+            <div *ngIf="clientForm.get('email')?.hasError('minlength')">
+              <span style="color: red;">The email requied atleast 5 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('email')?.hasError('maxlength')">
+              <span style="color: red;">The email requied only 80 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('email')?.hasError('pattern')">
+              <span style="color: red;">The Email is not valid.</span>
+            </div>
+          </div>
+        </td>
+
+        <td>Location</td>
+        <td>
+          <input
+            type="text"
+            id="location"
+            formControlName="location"
+            class="form-control"
+          />
+          <div *ngIf="clientForm.get('location')?.errors  && isSubmitted">
+            <div *ngIf="clientForm.get('code')?.hasError('required')">
+                <span style="color: red;">Please Enter location.</span>
+            </div>
+            <div *ngIf="clientForm.get('location')?.hasError('minlength')">
+                <span style="color: red;">Location requied atleast 3 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('location')?.hasError('maxlength')">
+                <span style="color: red;">Location requied only 15 characters.</span>
+            </div>
+            <div *ngIf="clientForm.get('location')?.hasError('pattern')">
+                <span style="color: red;">Only characters are allowed.</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="add" formArrayName="projectList">
+      <button
+        type="button"
+        style="margin-left: 30px"
+        [disabled]="!clientForm.valid"
+        (click)="addProject()"
+       
+      >
+        Add Projects
+      </button>
+      <div *ngFor="let projectss of project.controls; let i=index">
+        project {{ i+1 }}
+        <table>
+          <div>
+          <tr>
+            <td>ProjectName</td>
+            <td>
+              <input
+                type="text"
+                id="name"
+                formControlName="projectName"
+                class="form-control"
+              />
+              <div *ngIf="clientForm.get('projectName')?.errors  && isSubmitted">
+                <div *ngIf="clientForm.get('projectName')?.hasError('required')">
+                    <span style="color: red;">Please Enter Client Name.</span>
+                </div>
+                <div *ngIf="clientForm.get('projectName')?.hasError('minlength')">
+                    <span style="color: red;">Client name requied atleast 3 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('projectName')?.hasError('maxlength')">
+                    <span style="color: red;">Client name requied only 30 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('projectName')?.hasError('pattern')">
+                    <span style="color: red;">Only characters are allowed.</span>
+                </div>
+              </div>
+              
+
+            </td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>
+              <textarea
+                type="text"
+                formControlName="description"
+                id="description"
+                class="form-control"
+              ></textarea>
+              <div *ngIf="clientForm.get('description')?.errors  && isSubmitted">
+                <div *ngIf="clientForm.get('description')?.hasError('required')">
+                    <span style="color: red;">Please Enter project Description.</span>
+                </div>
+                <div *ngIf="clientForm.get('description')?.hasError('minlength')">
+                    <span style="color: red;">Description contain atleast 10 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('description')?.hasError('maxlength')">
+                    <span style="color: red;">Client name requied only 80 characters.</span>
+                </div>
+                
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Users</td>
+            <td>
+              <textarea
+                type="text"
+                formControlName="users"
+                id="users"
+                class="form-control"
+              ></textarea>
+              <div *ngIf="clientForm.get('users')?.errors  && isSubmitted">
+                <div *ngIf="clientForm.get('users')?.hasError('required')">
+                    <span style="color: red;">Please Enter Client Name.</span>
+                </div>
+                <div *ngIf="clientForm.get('users')?.hasError('minlength')">
+                    <span style="color: red;">Client name requied atleast 3 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('users')?.hasError('maxlength')">
+                    <span style="color: red;">Client name requied only 30 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('users')?.hasError('pattern')">
+                    <span style="color: red;">Only characters are allowed.</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>DeadLine</td>
+            <td>
+              <input
+                type="text"
+                formControlName="deadline"
+                id="deadline"
+                class="form-control"
+              />
+              <div *ngIf="clientForm.get('deadline')?.errors  && isSubmitted">
+                <div *ngIf="clientForm.get('deadline')?.hasError('required')">
+                    <span style="color: red;">Please Enter Client Name.</span>
+                </div>
+                <div *ngIf="clientForm.get('deadline')?.hasError('minlength')">
+                    <span style="color: red;">Client name requied atleast 3 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('deadline')?.hasError('maxlength')">
+                    <span style="color: red;">Client name requied only 30 characters.</span>
+                </div>
+                <div *ngIf="clientForm.get('deadline')?.hasError('pattern')">
+                    <span style="color: red;">Only characters are allowed.</span>
+                </div>
+              </div>
+            </td><button (click)="removeProject(i)">Delete</button>
+          </tr>
+        </div>
+        </table>
+        
+          <hr>
+        </div>
+      </div>
+      <button type="submit">
+        {{ editMode ? "Update" : "Save" }}
+      </button>
+  
+</form>
+
+  <hr />
+  <div class="col-xs-12">
+   <!---<div class="flex-container">
+      <div
+        class="shadow p-3 m-3"
+        style="border-radius: 5px, width=20%"
+        *ngFor="let c of clients; let i = index"
+      >
+        <h3 style="text-align: center; font-size: 20px">{{ c.name }}</h3>
+        <h3>{{ c.projectname }}</h3>
+
+        <button
+          type="button"
+          style="background-color: white"
+          (click)="onRemove()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="24"
+            height="24"
+            viewBox="0 0 171 171"
+            style="fill: #000000"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path
+                d="M0,171.99294v-171.99294h171.99294v171.99294z"
+                fill="none"
+              ></path>
+              <g fill="#3aafa9">
+                <path
+                  d="M71.25,14.25l-7.125,7.125h-42.75v14.25h7.9043l12.70532,108.698v0.05567c0.93355,7.02997 7.03767,12.37134 14.12476,12.37134h58.76733c7.08709,0 13.19121,-5.34146 14.12476,-12.37134l0.01392,-0.05567l12.70532,-108.698h7.9043v-14.25h-42.75l-7.125,-7.125zM43.64063,35.625h83.71875l-12.48267,106.875h-58.76733z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <button type="button" style="background-color: white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="24"
+            height="24"
+            viewBox="0 0 171 171"
+            style="fill: #000000"
+            (click)="editItem(i)"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path
+                d="M0,171.99294v-171.99294h171.99294v171.99294z"
+                fill="none"
+              ></path>
+              <g fill="#3aafa9">
+                <path
+                  d="M131.20019,14.25c-1.824,0 -3.64822,0.69803 -5.0376,2.0874l-14.25,14.25l-10.07519,10.07519l-80.4624,80.4624v28.5h28.5l104.7876,-104.7876c2.78588,-2.78588 2.78588,-7.29645 0,-10.0752l-18.4248,-18.4248c-1.38938,-1.38938 -3.2136,-2.0874 -5.0376,-2.0874zM131.20019,31.4502l8.34962,8.34961l-9.2124,9.2124l-8.34961,-8.34961zM111.9126,50.73779l8.34961,8.34961l-76.2876,76.2876h-8.34961v-8.34961z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>-->
